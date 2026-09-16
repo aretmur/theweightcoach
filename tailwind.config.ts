@@ -10,6 +10,7 @@ const config = {
       },
     },
   },
+  darkMode: ["selector", '[data-theme="dark"]'],
   plugins: [],
 };
 

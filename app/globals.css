@@ -1,13 +1,53 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
-:root {
-  --background: #fafafa;
-  --foreground: #171717;
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-header: var(--header);
+  --font-sans: var(--font-sans);
+}
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #f4f6fb;
+  --foreground: #0f172a;
+  --muted: #5b6478;
+  --card: #ffffff;
+  --card-border: rgb(15 23 42 / 0.08);
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-soft: rgb(79 70 229 / 0.1);
+  --header: rgb(244 246 251 / 0.82);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0b1220;
+  --foreground: #f1f5f9;
+  --muted: #94a3b8;
+  --card: #121a2b;
+  --card-border: rgb(148 163 184 / 0.14);
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-soft: rgb(99 102 241 / 0.16);
+  --header: rgb(11 18 32 / 0.82);
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(1200px 500px at 50% -10%, var(--accent-soft), transparent 60%),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  min-height: 100vh;
 }

@@ -1,9 +1,17 @@
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { ToolsSection } from "@/components/ToolsSection";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-neutral-50 px-6">
-      <h1 className="text-center text-3xl font-medium tracking-tight text-neutral-900 sm:text-5xl">
-        The Weight Coach - Coming Soon
-      </h1>
-    </main>
+    <div className="flex min-h-screen flex-col">
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <ToolsSection />
+      </main>
+      <Footer />
+    </div>
   );
 }
